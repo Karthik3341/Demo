@@ -10,6 +10,4 @@ public class Bus {
 	int noOfSeats;
 	boolean nonStop;
 
-	}
-
-
+}
