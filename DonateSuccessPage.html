@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/SuccessPage.css}">
+<title>Donate Success</title>
+</head>
+<body>
+	<div class="container">
+		<div class="popup" id="popUp">
+			<img th:src="@{/Images/success.jpg}" alt ="Check">
+			<h2>Donated Sucessfully</h2>
+			<p>Thank You for your service...</p>
+
+			<button type="button" th:onclick="location.href='/DonorRegisterDashboard'">Continue</button>
+		</div>
+	</div>
+</body>
+</html>

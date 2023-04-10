@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeker Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/LoginPage.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+    <script th:src="@{https://kit.fontawesome.com/2b070e02a1.js}" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+        <div class="wrapper">
+            <div class="user-icon">
+                <em class="far fa-user"></em>
+            </div>
+            <form class="login" th:action="@{/SeekerLogin}" th:object="${seekerLogin}" method="get">
+                <div class="inputfield">
+                    <input type="text"  placeholder="Enter Username" id="username" name="seekerUserName" class="username" onkeyup="userNameValidation()" required />
+                    <span id="uname-error"></span>            
+                </div>
+                <div class="inputfield">
+                    <input type="password" placeholder="Enter Password" id="password" name="seekerPassword" class="password" onkeyup="passwordValidation()" required />
+                    <span id="pass-error"></span>                            
+                </div>
+                <div class="inputfield">
+                    <button type="submit" onclick="validateForm()">Login</button>
+                    <span id="submit-error"></span>   
+                </div>
+                <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+                <br>
+                <div class="inputfield">
+                    <p>Not Registered? <a th:href="@{/SeekerRegisterPage}">Create an account</a></p>
+                </div>
+                Forgot Password?<a th:href="@{/SeekerForgotPassword}">Click Here</a>                  
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/JavaScript/LoginValidation.js}"></script>
+</body>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" th:href="@{/CSS/LandingPage.css}">
+	<script th:src="@{https://kit.fontawesome.com/853be5df50.js}"></script>
+	<meta charset="ISO-8859-1">
+	<script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js}"></script>
+	<title>Global Blood Centre</title>
+</head>
+<body>
+	<header>
+		<div class="title">
+			<h2>
+				Global<br> <span>Blood Centre</span>
+			</h2>
+		</div>
+		<div class="menubar">
+			<div class="logo">
+				<img th:src="@{/Images/logo.png}" alt="logo">
+			</div>
+			<ul>
+				<li class="active"><a th:href=@{/}><em
+						class="fa-solid fa-house-chimney"></em> Home</a></li>
+ 				<li><a href="#service">Service</a></li>
+				<li><a href="#gallery">Gallery</a></li>
+				<li><a href="#about">About Us</a></li>
+				<li><a href="#"><em class="fa-solid fa-user-plus"></em>
+						Login</a>
+					<div class="submenu">
+						<ul>
+							<li><a th:href=@{/AdminLoginPage}><em class="fa-solid fa-user"></em> Admin</a></li>
+							<li><a th:href=@{/BloodBankLoginPage}><em class="fa-solid fa-user"></em>BloodBank</a></li>
+							<li><a th:href=@{/DonorLoginPage}><em class="fa-solid fa-users"></em>Donor</a></li>
+							<li><a th:href=@{/HospitalLoginPage}><em class="fa-solid fa-hospital-user"></em>Hospital</a></li>
+							<li><a th:href=@{/SeekerLoginPage}><em class="fa-solid fa-user"></em>Seeker</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+		</header>		
+		<div class="landing">
+			<img th:src="@{/Images/LandingPage.jpg}" alt="landing">
+			<br>
+		</div>
+		<div class="count">
+        	<div class="col-div-1">
+        		<div class="box">
+        			<span style="margin-left: -5px;">BloodBank Registered</span>
+        			<p class="counter" th:text="${BloodBankCount}"></p>
+        			<em class="fa-solid fa-users box-icon"></em>
+        		</div>
+        	</div>
+        	<div class="col-div-1">
+        		<div class="box">
+        			<span>Donors Registered</span>
+        			<p class="counter" th:text="${DonorCount}"></p>
+        			<em class="fa-solid fa-user box-icon"></em>
+        		</div>
+        	</div>
+        	<div class="col-div-1">
+        		<div class="box">
+        			<span>Hospital Registered</span>
+        			<p class="counter" th:text="${HospitalCount}"></p>
+        			<em class="fa-solid fa-hospital-user box-icon"></em>
+        		</div>
+        	</div>
+        	<br>
+        	<div class="col-div-2">
+        		<div class="box">
+        			<span>Seeker Registered</span>
+        			<p class="counter" th:text="${SeekerCount}"></p>
+        			<em class="fa-solid fa-users box-icon"></em>
+        		</div>
+        	</div>
+        	<div class="col-div-2">
+        		<div class="box" style="margin-left: -120px;">
+        			<span style="margin-left: 40px;">Total Locations</span>
+        			<p class="counter" th:text="${LocationCount}"></p>
+        			<em class="fa-solid fa-location-dot box-icon"></em>
+        		</div>
+        	</div>
+		<br>
+		<br>
+		</div>
+		<div class="container">
+		<br>
+			<h3>LEARN ABOUT DONATION</h3>
+			<br>
+			<section>
+				<div class="image1">
+					<img th:src="@{/Images/blood6.png}" alt="blood">
+				</div>
+
+				<div class="image2">
+					<img th:src="@{/Images/bloodcompare.png}" alt="blood-compare">
+				</div>
+			</section>
+		</div>
+		<br>
+		<div class="para">
+			<p>
+				After donating blood, the body works to replenish the blood
+				loss.This stimulates the
+				production of new blood cells and in
+				turn, helps in maintaining good health.
+			</p>
+		</div>
+		<div class="button">
+				<a th:href="@{/DonorRegisterPage}"><em class="fa-solid fa-droplet"></em> Donate Now</a>
+		</div>
+		<br>
+		<hr>
+		<br>
+		<div class="service" id="service">
+			<h3>SERVICE</h3>
+			<br>
+			<div class="card">
+				<img th:src="@{/Images/donate.jpg}" alt="donate" style="width: 100%"
+					height="200px">
+				<h4>Blood Donation</h4>
+				<p>We store the safest blood of all blood groups which you can
+					use for any kind of treatments or in an emergency.</p>
+			</div>
+			<div class="card">
+				<img th:src="@{/Images/stock1.webp}" alt="stock" style="width: 100%" height="200px">
+				<h4>Blood Storage</h4>
+				<p>Donation of blood is a selfless service that we do for
+					mankind! We allow you to save a life donating blood to the ones who
+					need it.</p>
+			</div>
+			<div class="card">
+				<img th:src="@{/Images/redbloodcells.webp}" alt="bloodcells"
+					style="width: 100%" height="200px">
+				<h4>Provision of Red Blood Cells</h4>
+				<p>Lowering the count of red blood cells could be dangerous.We
+					also provide red blood cells for various treatments.</p>
+			</div>
+			<div class="card1"></div>
+			<br>
+		</div>
+		<br>
+		<div class="gallery" id="gallery">
+			<br>
+			<h3>GALLERY</h3>
+			<br>
+			<div class="Picture">
+				<img th:src="@{/Images/Gallery1.jpg}" alt="Gallery1" style="width: 100%">
+			</div>
+			<div class="Picture">
+				<img th:src="@{/Images/Gallery2.jpg}" alt="Gallery2" style="width: 100%">
+			</div>
+			<div class="Picture">
+				<img th:src="@{/Images/Gallery3.jpg}" alt="Gallery3" style="width: 100%">
+			</div>
+			<div class="Picture">	
+				<img th:src="@{/Images/Gallery4.jpg}" alt="Gallery4" style="width: 100%">
+			</div>
+			<div class="Picture">			
+				<img th:src="@{/Images/Gallery5.jpg}" alt="Gallery5" style="width: 100%" >
+			</div>
+			<div class="Picture">			
+				<img th:src="@{/Images/Gallery6.webp}" alt="Gallery6" style="width: 100%">
+			</div>
+			<div class="Picture">			
+				<img th:src="@{/Images/Gallery7.jpg}" alt="Gallery7" style="width: 100%">
+			</div>
+			<div class="Picture2">			
+				<img th:src="@{/Images/Gallery8.jpg}" alt="Gallery8" style="width: 100%">
+			</div>
+		</div>
+		<div class="about" id="about">
+			<h3>About Us</h3>
+			<br>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;Blood banks play an important role in the
+			process of collecting blood and managing blood stocks, approving
+			blood requests, updating donations and updating available blood
+			types. Raster's web-based BBMS will address the issues and problems
+			encountered in collecting information about donors, blood camps,
+			inventories of blood bags, and blood transfusion services, etc,
+			including donor screening, inventory management, blood ordering,
+			blood usage review and compatibility testing. Blood Bank Management
+			system will greatly increase the safety and quality of the blood
+			supply as well as provide logistics data for the optimal supply chain
+			management.</p>
+			<div class="aboutus">
+				<img th:src="@{/Images/aboutus.jpg}" alt="aboutus">
+			</div>
+		</div>
+	<div class="donor">
+		<br> <br>
+		<h3>Who can donate blood?</h3>
+		<div class="donorimg">
+			<img th:src="@{/Images/donorimag.jpg}" alt="donorimg">
+		</div>
+		<br>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any healthy adult, both male and
+			female, can donate every three months Good health of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the
+			donor must be fully ensured. The universally accepted criteria for
+			donor selection are: <br>
+		</p>
+		<span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.Age
+			between 18 and 60 years<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.Haemoglobin &nbsp;&nbsp;&nbsp;- not
+			less than 12.5 g/Dl <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.Pulse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			- between 50 and 100/minute with no irregularities<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.Blood Pressure
+			-Systolic 100-180 mm Hg and Diastolic 50 - 100 mm Hg<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.Temperature&nbsp;&nbsp;&nbsp; -
+			Normal (oral temperature not exceeding 37.50C)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.Body weight &nbsp;&nbsp;&nbsp;&nbsp;- not
+			less than 40 Kg
+		</span>
+	</div>
+	<footer id="footer">
+			<div class="footer1">
+				<div class="row">
+					<div id="col1">
+						<span id="icon" class="fa fa-map-marker"></span> <span>
+							710-A,Business Park,<br>Ambattur, <br/>Chennai-600001
+						</span>
+					</div>
+
+					<div id="col2">
+						<span id="icon" class="fa fa-phone"></span> 
+						<span>+91-9025513968 </span>
+					</div>
+
+					<div id="col3">
+						<span id="icon" class="fa fa-envelope"></span> <span>globalbloodcentre@gmail.com</span>
+					</div>
+					<span></span>
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript" src="/JavaScript/LandingPage.js"></script>
+		<script type="text/javascript" th:src="@{/JavaScript/AutoCount.js}"></script>
+</body>
+</html>

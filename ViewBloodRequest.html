@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Blood Request</title>
+<link rel="stylesheet" th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}" type="text/css" />
+<link rel="stylesheet"  th:href="@{/CSS/SlickGridTable.css}" type="text/css">	
+<style>
+#blood{
+	background-color:red;
+	color: white;
+	width: 120px;
+	padding: 10px;
+	border-radius: 30px;
+}
+
+#btn{
+	background-color:green;
+	color: white;
+	width: 120px;
+	padding: 10px;
+	border-radius: 30px;
+}
+</style>
+</head>
+<body>
+	<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+	<h2>BLOOD REQUEST</h2>
+	<div style="position: static; margin-top: -10px;">
+		<div style="width: 100%;">
+			<div id="myGrid" style="width: 100%; height: 500px;"></div>
+		</div>
+	</div>
+	<br>
+	<form th:action="@{/Accept}" method="get" th:object="${blood}">
+		<button id="btn" type="submit">Approve</button>
+		<button id="blood" formaction="/Reject" type="submit">Reject</button>
+		<input type="hidden" id="reqIdList" th:field="*{requestBloodGroup}">
+	</form>
+
+	<input type="text" id="viewReq" th:value="${ViewRequest}" style="display: none;">
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	<script th:src="@{/SlickGrid/lib/firebugx.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.checkboxselectcolumn.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.autotooltips.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangedecorator.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangeselector.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellcopymanager.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellselectionmodel.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+	<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+	<script th:src="@{/SlickGrid/slick.formatters.js}"></script>
+	<script th:src="@{/SlickGrid/slick.editors.js}"></script>
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	<script type="text/javascript" th:src="@{/JavaScript/ViewBloodRequest.js}"></script>
+	<script type="text/javascript">
+	viewBloodRequestList();
+	</script>
+	<script type="text/javascript">
+	document.getElementById('btn').onclick = function() {  
+		  var markedCheckbox = document.getElementsByName('checkName');
+		  var inputField= document.getElementById('reqIdList');
+		  var value=[];
+		  for (var checkbox of markedCheckbox) {  
+		    if (checkbox.checked){
+		    	
+		    console.log(value);
+		    	value.push(checkbox.value);
+		      document.body.append(checkbox.value + ',');  
+		    }
+		  }  
+		    	inputField.value=value;
+		}  
+	document.getElementById('blood').onclick = function() {  
+		  var markedCheckbox = document.getElementsByName('checkName');
+		  var inputField= document.getElementById('reqIdList');
+		  var value=[];
+		  for (var checkbox of markedCheckbox) {  
+		    if (checkbox.checked){
+		    	
+		    console.log(value);
+		    	value.push(checkbox.value);
+		      document.body.append(checkbox.value + ',');  
+		    }
+		  }  
+		    	inputField.value=value;
+		} 
+	</script>
+</body>
+</html>

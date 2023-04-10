@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank Profile</title>
+    <link rel="stylesheet" th:href="@{/CSS/Profile.css}">
+    <script th:src="@{https://kit.fontawesome.com/853be5df50.js}"></script>
+</head>
+<body style="overflow: hidden;">
+      <form class="form" th:action="@{/BloodBankProfileUpdate}" method="get" th:object="${bloodbankupdate}">
+        <h2>My Profile</h2>
+        <div class="container">
+        <div class="form-group">
+            <label>BloodBank Code:</label>
+            <div class="relative">
+              <input class="form-control" name="bloodBankId" id="bloodBankId" type="number" readonly="readonly" placeholder="Type your code here..." th:value="${session.BloodBankId}" required>
+              <em class="fa fa-id-card-clip"></em>
+            </div>
+          </div>
+        <div class="form-group">
+          <label>BloodBank Name:</label>
+          <div class="relative">
+            <input class="form-control" name="bloodBankName" id="bloodBankName" type="text" placeholder="Type your name here..." th:value="${session.BloodBankName}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Contact Number:</label>
+            <div class="relative">
+              <input class="form-control" name="bBankContactNumber" id="bBankContactNumber" type="tel" placeholder="Type your Mobile Number..." th:value="${session.ContactNumber}" required>
+              <em class="fa fa-phone"></em>
+            </div>
+        </div>
+        <div class="form-group">
+          <label>EmailId:</label>
+          <div class="relative">
+            <input class="form-control" name="bBankEmail" id="bBankEmail" type="email" placeholder="Type your email id..." th:value="${session.Email}" required>
+            <em class="fa fa-envelope"></em>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Username:</label>
+          <div class="relative">
+            <input class="form-control" name="bBankUserName" id="bBankUserName" type="text" placeholder="Type your username..." th:value="${session.Username}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="form-group">
+          <label>Password:</label>
+          <div class="relative">
+          <input class="form-control" name="bBankPassword" id="password" type="password" placeholder="Type your password..." th:value="${session.Password}" required>
+          <span class="eyeicon" onclick="hidePassword()">
+         	 <em id="hide1" class="fa fa-eye"></em>
+         	 <em id="hide2" class="fa fa-eye-slash"></em>
+          </span>
+          </div>  
+        </div>
+        <div class="form-group">
+          <label>Register Date</label>
+          <div class="relative">
+            <input class="form-control" name="bBankRegisterDate" id="bBankRegisterDate" type="date" readonly="readonly" th:value="${session.RegisterDate}" required>
+			<em class="fa fa-calendar-days"></em>          
+		  </div>
+        </div>
+        <div class="form-group">
+            <label>Address:</label>
+            <div class="relative">
+            <input class="form-control" name="bBankAddress" id="bBankAddress" type="text" placeholder="Type your address..." th:value="${session.Add}" required>
+            <em class="fa fa-location-dot"></em>
+          </div>  
+        </div>
+        <div class="form-group">
+            <label>Location Code</label>
+            <div class="relative">
+              <input class="form-control" name="bBankLocationId" id="bBankLocationId" type="number" readonly="readonly"  placeholder="Type your Location Code..." th:value="${session.LocationId}" required>
+              <em class="fa fa-location-dot"></em>
+            </div>
+        </div> 
+        <div class="tright">
+            <button class="movebtn movebtnre" type="button" value="back" onclick="history.go(-1);"><em class="fa-solid fa-backward"></em> Go Back </button>
+            <button class="movebtn movebtnsu" type="Submit"><em class="fa fa-fw fa-paper-plane"></em> Update</button>
+        </div>
+        </div>                       
+      </form>
+      <script type="text/javascript" th:src="@{/JavaScript/PasswordHideValidation.js}"></script>
+</body>
+</html>

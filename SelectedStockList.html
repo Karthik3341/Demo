@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/SelectTable.css}">
+<meta charset="ISO-8859-1">
+<title>Stock List</title>
+<style type="text/css">
+button{
+	background-color: aqua;
+	color: maroon;
+	border: none;
+	border-radius: 20px;
+	padding: 10px;
+	width: 100px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+	<h1>BLOOD STOCK</h1>
+	<div class="column">
+		<div class="card">
+			<img src="/Images/a-positive.jpg" alt="A+"><br>
+			<h2 th:text="${session.apositive}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/a-negative.png" alt="A-">
+			<h2 th:text="${session.anegative}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/b-positive.png" alt="B+">
+			<h2 th:text="${session.bpositive}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/b-negative.jpg" alt="B-">
+			<h2 th:text="${session.bnegative}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/o-positive.png" alt="O+">
+			<h2 th:text="${session.opositive}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/o-negative.png" alt="O-">
+			<h2 th:text="${session.onegative}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/ab-positive.png" alt="AB+">
+			<h2 th:text="${session.abpositive}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="/Images/ab-negative.png" alt="AB-">
+			<h2 th:text="${session.abnegative}"></h2>&nbsp;
+			<span>Unit</span>
+		</div>
+	</div>
+</body>
+</html>

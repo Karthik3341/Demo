@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/CSS/DonorRegister.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+    <script type="text/javascript" th:src="@{https://code.jquery.com/jquery-1.7.2.min.js}"></script>  
+    <title>Donor Registration </title>
+</head>
+<body>
+<div class="container">
+	<form th:action="@{/DonorRegister}" method="get" th:object="${donorRegister}">
+            <h2>Donor Register</h2>
+            <hr>
+            <div class="inputfield">
+            <label>Name :</label> 
+            <input type="text"	placeholder="Your name" name="donorname" id="donorname" onkeyup="nameValidation()" th:field="*{donorName}" required>
+            </div>
+            <div class="inputfield">
+            <span id="dname-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Date Of Birth :</label> 
+            <input type="text" placeholder="01/01/2000" name="dob" id="dob" th:field="*{dob}" onkeyup="dobValidation()" required>
+            </div>
+            <div class="inputfield">
+            <span class="error" id="dob-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Weight:</label> 
+            <input type="text" placeholder="40kg" name="weight" id="weight" onkeyup="weightValidation()" th:field="*{weight}" required>
+            </div>
+            <div class="inputfield">
+            <span id="weight-error"></span>
+            </div>
+            
+            <div class="inputfield">
+            <label>Gender :</label>
+			<select	name="gender" th:field="*{donorGender}" required>
+                <option value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+            </div>       
+
+            <div class="inputfield">
+            <label>Blood Group</label> 
+		    <select	th:field="*{donorBloodGroup}" required>
+			<option value="Select">Select</option>
+			<option value="AB+">AB+</option>
+			<option value="AB-">AB-</option>
+			<option value="A+">A+</option>
+			<option value="A-">A-</option>
+			<option value="B+">B+</option>
+			<option value="B-">B-</option>
+			<option value="O+">O+</option>
+			<option value="O-">O-</option>
+		    </select>
+		    </div>
+
+            <div class="inputfield">
+            <label>Mobile Number</label><br> 
+		    <input type="number" placeholder="Your Mobile Number" name="mobilenumber" id="mobilenumber" onkeyup="mobileNoValidation()" th:field="*{donorMobileNumber}">
+            </div>
+            <div class="inputfield">
+            <span id="mobile-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Email Id :</label>
+            <input type="email" placeholder="adcde@gamil.com" name="email" id="email" onkeyup="emailValidation()" th:field="*{donorEmail}">
+            </div>
+            <div class="inputfield">
+            <span id="email-error"></span>
+            </div>		
+             
+            <div class="inputfield">
+            <label>Username :</label>
+            <input type="text" placeholder="username" name="username" id="username" onkeyup="userNameValidation()" th:field="*{donorUserName}"> 
+            </div>
+            <div class="inputfield">
+            <span id="uname-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Enter Password :</label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" onkeyup="passwordValidation()" th:field="*{donorPassword}" required>
+            </div>
+            <div class="inputfield">
+            <span id="pass-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Confirm Password :</label>
+            <input type="password" placeholder="Confirm Password" name="cpassword" id="cpassword" onkeyup="cPasswordValidation()" required>
+            </div>
+            <div class="inputfield">
+            <span id="cpass-error"></span>
+            </div>
+              
+            <div class="inputfield">
+            <label>Address :</label>
+            <input type="text" placeholder="Your address" name="address" id="address" onkeyup="addressValidation()" th:field="*{donorAddress}" required>
+            </div>
+            <div class="inputfield">
+            <span id="address-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Location Id</label> 
+		    <select th:field="*{locationId}" required>
+			<option value="Select">Select</option>
+			<option value="1001" id="donorLocationId" >Ariyalur</option>
+			<option value="1002" id="donorLocationId" >Chengalpattu</option>
+			<option value="1003" id="donorLocationId" >Chennai</option>
+			<option value="1004" id="donorLocationId" >Coimbatore</option>
+			<option value="1005" id="donorLocationId" >Cuddalore</option>
+			<option value="1006" id="donorLocationId" >Dharmapuri</option>
+			<option value="1007" id="donorLocationId" >Dindigul</option>
+			<option value="1008" id="donorLocationId" >Erode</option>
+			<option value="1009" id="donorLocationId" >Kallakurichi</option>
+			<option value="1010" id="donorLocationId" >Kancheepuram</option>
+			<option value="1011" id="donorLocationId" >Karur</option>
+			<option value="1012" id="donorLocationId">Krishnagiri</option>
+			<option value="1013" id="donorLocationId" >Kanyakumari</option>
+			<option value="1014" id="donorLocationId" >Madurai</option>
+			<option value="1015" id="donorLocationId" >Mayiladuthurai</option>
+			<option value="1016" id="donorLocationId" >Nagapattinam</option>
+			<option value="1017" id="donorLocationId" >Namakkal</option>
+			<option value="1018" id="donorLocationId" >Perambalur</option>
+			<option value="1019" id="donorLocationId" >Pudukottai</option>
+			<option value="1020" id="donorLocationId" >Ramanathapuram</option>
+			<option value="1021" id="donorLocationId" >Ranipet</option>
+			<option value="1022" id="donorLocationId" >Salem</option>
+			<option value="1023" id="donorLocationId" >Sivagangai</option>
+			<option value="1024" id="donorLocationId" >Tenkasi</option>
+			<option value="1025" id="donorLocationId" >Thanjavur</option>
+			<option value="1026" id="donorLocationId" >Theni</option>
+			<option value="1027" id="donorLocationId" >Thiruvallur</option>
+			<option value="1028" id="donorLocationId" >Thiruvarur</option>
+			<option value="1029" id="donorLocationId" >Tuticorin</option>
+			<option value="1030" id="donorLocationId" >Trichy</option>
+			<option value="1031" id="donorLocationId" >Thirunelveli</option>
+			<option value="1032" id="donorLocationId" >Tirupathur</option>
+			<option value="1033" id="donorLocationId" >Tiruppur</option>
+			<option value="1034" id="donorLocationId" >Tiruvannamalai</option>
+			<option value="1035" id="donorLocationId" >The Nilgiris</option>
+			<option value="1036" id="donorLocationId" >Vellore</option>
+			<option value="1037" id="donorLocationId" >Villupuram</option>
+			<option value="1038" id="donorLocationId" >Virudhunagar</option>
+		    </select>
+            </div>       
+
+            <button type="submit" onclick="validateForm()">Submit</button>
+            <span id="submit-error"></span>
+            <div class="button2">
+            <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+            </div>
+            <div class="containersignin">
+                Already have an account? <a th:href="@{/DonorLogin}">Sign in</a>.
+            </div>
+        </form>
+    </div>
+	<script th:src="@{/JavaScript/DonorValidation.js}"></script>
+	<script type="text/javascript" th:src="@{/JavaScript/DateHideValidation.js}"></script>
+    </body>
+</html>

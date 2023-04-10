@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TestGrid</title>
+<link rel="stylesheet" th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}" type="text/css" />
+<link rel="stylesheet"  th:href="@{/CSS/SlickGridTable.css}" type="text/css">
+</head>
+<body>
+	<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+	<h2>MY BLOOD REQUEST HISTORY</h2>
+	<div style="position: fixed; margin-top: -10px;">
+		<div style="width: 100%;">
+			<div id="myGrid" style="width: 100%; height: 500px;"></div>
+		</div>
+	</div>
+	<input type="text" id="seekreqhisinfo" th:value="${SeekerRequestHistory}" style="display: none;">
+	<div th:attr="data-myvar=${managerInfo}" id="myDiv"></div>
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	<script th:src="@{/JavaScript/SeekerBloodRequestHistoryGrid.js}"></script>
+	<script th:inline="javascript">
+		seekerBloodRequestHistorySlickGrid();
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeker Profile</title>
+    <link rel="stylesheet" th:href="@{/CSS/Profile.css}">
+    <script th:src="@{https://kit.fontawesome.com/853be5df50.js}" crossorigin="anonymous"></script>
+</head>
+<body style="overflow: hidden;">
+      <form class="form" th:action="@{/SeekerProfileUpdate}" method="get" th:object="${seekerupdate}">
+        <h2>My Profile</h2>
+        <div class="container">
+        <div class="form-group">
+            <label>Seeker Code:</label>
+            <div class="relative">
+              <input class="form-control" name="seekerId" id="seekerId" type="number" readonly="readonly" placeholder="Type your code here..." th:value="${session.SeekerId}" required>
+              <em class="fa fa-id-card-clip"></em>
+            </div>
+          </div>
+        <div class="form-group">
+          <label>Seeker Name:</label>
+          <div class="relative">
+            <input class="form-control" name="seekerName" id="seekerName" type="text" placeholder="Type your name here..." th:value="${session.SeekName}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Mobile Number:</label>
+            <div class="relative">
+              <input class="form-control" name="seekerMobileNumber" id="seekerMobileNumber" type="tel" placeholder="Type your Mobile Number..." th:value="${session.MobileNumber}" required>
+              <em class="fa fa-phone"></em>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="relative">
+              <input class="form-control" name="seekerGender" id="seekerGender" type="text" readonly="readonly" placeholder="Type your gender..." th:value="${session.Gender}" required>
+              <em class="fa fa-person"></em>
+            </div>
+        </div>
+         <div class="form-group">
+          <label>Username:</label>
+          <div class="relative">
+            <input class="form-control" name="seekerUserName" id="seekerUserName" type="text" placeholder="Type your username..." th:value="${session.Username}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+       </div>
+       <div class="container">
+        <div class="form-group">
+          <label>Password:</label>
+          <div class="relative">
+          <input class="form-control" name="seekerPassword" id="password" type="password" placeholder="Type your password..." th:value="${session.Password}" required>
+          <span class="eyeicon" onclick="hidePassword()">
+         	 <em id="hide1" class="fa fa-eye"></em>
+         	 <em id="hide2" class="fa fa-eye-slash"></em>
+          </span>
+          </div>  
+        </div>        
+        <div class="form-group">
+            <label>Address:</label>
+            <div class="relative">
+            <input class="form-control" name="seekerAddress" id="seekerAddress" type="text" placeholder="Type your address..." th:value="${session.City}" required>
+            <em class="fa fa-location-dot"></em>
+          </div>  
+        </div>
+        <div class="form-group">
+          <label>Register Date</label>
+          <div class="relative">
+            <input class="form-control" name="seekerRegisterDate" id="seekerRegisterDate" type="date" readonly="readonly" th:value="${session.RegisterDate}" required>
+			<em class="fa fa-calendar-days"></em>          
+		  </div>
+        </div>
+        <div class="form-group">
+            <label>Location Code</label>
+            <div class="relative">
+              <input class="form-control" name="seekerLocationId" id="seekerLocationId" type="number" readonly="readonly"  placeholder="Type your Location Code..." th:value="${session.LocationId}" required>
+              <em class="fa fa-location-dot"></em>
+            </div>
+        </div> 
+        <div class="tright">
+           <button class="movebtn movebtnre" type="button" value="back" onclick="history.go(-1);"><em class="fa-solid fa-backward"></em> Go Back </button>
+           <button class="movebtn movebtnsu" type="Submit">Update <em class="fa fa-fw fa-paper-plane"></em></button>
+        </div>
+        </div>                       
+      </form>
+      <script type="text/javascript" th:src="@{/JavaScript/PasswordHideValidation.js}"></script>
+</body>
+</html>

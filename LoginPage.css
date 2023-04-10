@@ -1,0 +1,119 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+ margin: 0;
+ padding: 0;
+ font-family: 'Poppins', sans-serif;
+}
+body{
+ height: 100vh;
+ width: 100%;
+ background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+ background-image: url("/Images/Loginpage.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+}
+.container{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ width: 100%;
+}
+.wrapper{
+ background: #fff;
+ padding: 56px 50px 25px 50px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ width: 376px;
+ font-size: 14px;
+ border-radius: 5px;
+}
+.user-icon{
+ background: #E91E63;
+ border-radius: 50%;
+ width: 80px;
+ height: 80px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ top: -50px;
+}
+.user-icon em{
+ font-size: 40px;
+ color: #FFF;
+}
+.login{
+ width: 100%;
+}
+.inputfield{
+ margin-bottom: 20px;
+ display: fle;
+ flex-direction: column;
+ width: 100%;
+}
+input[type="text"].username, input[type="password"].password{
+ font-size: 16px;
+ outline: none;
+ width: calc(100% - 36px);
+ border: 2px solid #CCC;
+ padding: 16px;
+ border-radius: 2px;
+ transition: all 0.3s ease;
+}
+input[type="text"].username:hover, input[type="password"].password:hover{
+ border: 2px solid #F8BBD0;
+}
+input[type="text"].username:focus, input[type="password"].password:focus{
+ border: 2px solid #F06292;
+}
+input[type="text"].username:active, input[type="password"].password:active{
+ border: 2px solid #F06292;
+}
+label{
+ display: flex;
+ align-items: center;
+ cursor: pointer;
+}
+label input[type="checkbox"]{
+ width: 20px;
+ height: 20px;
+ margin-right: 10px;
+ cursor: pointer;
+}
+button{
+ outline: none;
+ background: #9f01ea;
+ color: #FFF;
+ padding: 16px;
+ display: block;
+ width: 100%;
+ border:none;
+ text-transform: uppercase;
+ font-size: 16px;
+ cursor: pointer;
+ transition: all 0.4s;
+}
+button:hover{
+ box-shadow: 5px 5px 5px #CCC;
+}
+
+span{
+	color: red;
+}
+
+span em{
+    color: rgb(6, 141, 64);
+}
+
+a{
+	text-decoration: none;
+	padding-left: 5px;
+}
+
+

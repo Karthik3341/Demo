@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/SuccessPage.css}">
+</head>
+<body>
+	<div class="container">
+		<div class="popup" id="popUp">
+			<img th:src="@{/Images/checked.png}" alt="Checked">
+			<h2>Register Sucessfully</h2>
+			<h3>Welcome !&nbsp;"<span th:text="${session.DonorName}"></span>"</h3>
+			<p>Congratulations,your account<br> has been successfully created.<br>Thanks!</p>
+
+			<button type="button" th:onclick="location.href='/DonorRegisterDashboard'">Next</button>
+		</div>
+	</div>
+</body>
+</html>

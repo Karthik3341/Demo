@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+table {
+	border-collapse: separate;
+	width: 90%;
+	border: 1px solid #000;
+}
+
+th {
+	padding: 5px;
+	text-align: left;
+	border: 1px solid #000;
+	color: #000;
+}
+
+td {
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid #DDD;
+	border: 1px solid #000;
+}
+
+tr:hover {
+	background-color: LightGray;
+}
+
+caption{
+	background-color: whitesmoke;
+	height: 20px;
+	text-align: center;
+	padding:10px;
+	font-size: 20px;
+}

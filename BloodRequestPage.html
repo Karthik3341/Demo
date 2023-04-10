@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" th:href="@{/CSS/RequestPage.css}">
+    <script th:src="@{https://kit.fontawesome.com/853be5df50.js}" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{https://code.jquery.com/jquery-1.7.2.min.js}"></script>
+    <title>Form Validation</title>
+</head>
+<body>
+<div class="container">
+        <form th:action="@{/RequestBlood}" method="get" th:object="${bloodRequest}">
+            <h2>Blood Request Form</h2>
+            <br>
+            <hr>
+
+            <div class="inputfield">
+            <input type="hidden" placeholder="Your Id" name="requestingId" id="reqid" th:value="${session.SId}" required>
+            </div>
+            
+            <div class="inputfield">
+            <label>Requestor Type :</label>
+			<select	name="reqtype" th:field="*{requestorType}" required>
+                <option th:value="Select">Select</option>
+                <option th:value="Hospital">Hospital</option>
+                <option th:value="Seeker">Seeker</option>
+            </select>
+            </div>            
+
+            <div class="inputfield">
+                <label>Blood Group</label> 
+                <select	name="bloodgroup" th:field="*{requestBloodGroup}" required>
+                <option value="Select">Select</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                </select>
+                <br> 
+            </div>
+
+            <div class="inputfield">          
+            <label>Quantity :</label> 
+            <input	type="number" placeholder= "Enter Quantity" name="quantity" id="quantity" onkeyup="quantityValidation()" th:field="*{requestQuantity}" required> 
+            </div>
+            <div class="inputfield">
+            <span id="quantity-error"></span>
+            </div>
+            
+            <div class="inputfield">
+            <label>Address :</label>
+            <input type="text" placeholder="Enter Your Location" name="requestLocation" id="location" th:value="${session.Address}" onkeyup="locationValidation()" required>
+            </div>
+            <div class="inputfield">
+            <span id="location-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Mobile Number</label><br> 
+            <input type="tel" placeholder="Enter Your Mobile Number" name="requestMobileNo" id="mobilenumber" th:value="${session.Mobile}"  onkeyup="mobileNoValidation()">
+            </div>
+            <div class="inputfield">
+            <span id="mobile-error"></span>
+            </div>
+
+            <div class="inputfield">          
+            <label>BloodBank Code :</label> 
+            <input	type="number" placeholder= "Enter BloodBank Id" name="requestBloodBankId" id="requestBloodBankId" th:value="${session.BloodBankId}" onkeyup="bloodBankIdValidation()" required> 
+            </div>
+            <div class="inputfield">
+            <span id="bloodbankid-error"></span>
+            </div>
+
+            <button type="submit" onclick="validateForm()">Submit</button>
+            <span id="submit-error"></span>
+            <div class="button5">
+			<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+			</div>
+        </form>
+    </div>
+    <script th:src="@{/JavaScript/BloodRequestValidation.js}"></script>
+    <script type="text/javascript" th:src="@{/JavaScript/DateHideValidation.js}"></script>
+   </body>
+</html>

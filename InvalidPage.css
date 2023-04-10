@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+.container{
+    width: 35%;
+    height: 270px;
+    background-color:whitesmoke;
+    border: 3px solid #000;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+img{
+	width: 180px;
+	height: 120px;
+	margin-left: 150px;
+	margin-top: 10px;
+}
+
+p{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-top: -2px;
+}
+
+button{
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    padding: 10px;
+    margin-top: 90px;
+    width: 200px;
+    background-color: #6a006a;
+    color: white;
+}

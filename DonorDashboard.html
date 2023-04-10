@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/CSS/Dashboard.css}">
+	<link rel="stylesheet" th:href='@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href='@{https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css}'>
+	<script th:src="@{https://kit.fontawesome.com/853be5df50.js}"></script>
+	<script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js}"></script>
+    <title>Donor Dashboard</title>
+<style>
+.box p{
+	margin-top: 25px;
+    font-size: 35px;
+    font-weight: 350;
+    color: #000;
+}
+
+.box span {
+    font-size: 15px;
+    color: #818181;
+    margin-top:-100px;
+    padding-top:-100px;
+    margin-left: 25px;
+}
+
+.box-icon {
+    font-size: 40px !important;
+    float: right;
+    margin-top: 20px !important;
+    color: red;
+    padding-right: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="sidebar">		
+		<ul class="nav-links">
+			<li>
+				<a href="#" class="active"> <em class='bx bx-grid-alt'></em><span>Dashboard </span></a>
+			</li>
+			<li>
+				<a th:href="@{/DonorProfile}"> <em class="fa-solid fa-address-card"></em><span class="links_name">My Profile</span></a>
+			</li>
+			<li>
+				<a th:href="@{/DonatePage}"> <em class="fa-solid fa-heart"></em><span class="links_name">Donate Now</span></a>
+			</li>
+			<li>
+				<a th:href="@{/DonateHistory}"> <em class="fa-solid fa-clock-rotate-left"></em><span class="links_name">Donate History</span></a>
+			</li>
+			<li>
+				<a th:href="@{/}"> <em class="fa-solid fa-right-from-bracket"></em><span class="links_name">Logout</span></a>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+    <nav>
+    	<div class="logo">
+				<img th:src="@{/Images/logo.png}" alt="logo">
+			</div>
+    	<div class="title">
+			<h2>
+				Global<br><span>Blood Centre</span>
+			</h2>
+		</div>
+      	<div class="profile-details">
+       		<div class="session">
+       			<p th:text="${session.DonorName}"></p>
+       		</div>
+        </div>
+    </nav>
+    <div id="main">
+		<div class="col-div-3">
+        	<div class="box">
+        		<span>Total Donate </span>
+        		<p class="counter" th:text="${session.DonateHis2}"></p>
+        		<em class="fa-solid fa-droplet box-icon" style="color: red;"></em>
+           	</div>
+        </div>
+    </div>
+    </section>
+    <script type="text/javascript" th:src="@{/JavaScript/AutoCount.js}"></script>
+</body>
+</html>

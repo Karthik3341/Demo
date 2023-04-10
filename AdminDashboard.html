@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/CSS/Dashboard.css}">
+	<link rel="stylesheet" th:href='@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href='@{https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css}'>
+	<script th:src="@{https://kit.fontawesome.com/853be5df50.js}"></script>
+	<script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js}"></script>
+    <script type="text/javascript" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js}"></script>
+	<title>Admin Dashboard</title>
+<style>
+.box-icon {
+	font-size: 40px !important;
+	float: right;
+	color: #ff2bff;
+	margin-top: 20px !important;
+	padding-right: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+	<div class="sidebar">		
+		<ul class="nav-links">
+			<li>
+				<a href="#" class="active"> <em class='bx bx-grid-alt'></em><span>Dashboard </span></a>
+			</li>
+			<li>
+				<a th:href="@{/BloodBankList}"> <em class="fa-solid fa-user"></em><span class="links_name">BloodBank</span></a>
+			</li>
+			<li>
+				<a th:href="@{/DonorList}"> <em class="fa-solid fa-users"></em><span class="links_name">Donor</span></a>
+			</li>
+			<li>
+				<a th:href="@{/HospitalList}"> <em class="fa-solid fa-hospital-user"></em><span class="links_name">Hospital</span></a>
+			</li>
+			<li>
+				<a th:href="@{/SeekerList}"> <em class="fa-solid fa-user"></em><span class="links_name">Seeker</span></a>
+			</li>
+			<li>
+				<a th:href="@{/LocationList}"> <em class="fa-solid fa-location-dot"></em><span class="links_name">Location</span></a>
+			</li>
+			<li>
+				<a th:href="@{/}"> <em class="fa-solid fa-right-from-bracket"></em><span class="links_name">Logout</span></a>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+    <nav>
+    	<div class="logo">
+				<img th:src="@{/Images/logo.png}" alt="logo">
+			</div>
+    	<div class="title">
+			<h2>
+				Global<br><span>Blood Centre</span>
+			</h2>
+		</div>
+      	<div class="profile-details">
+       		<div class="session">
+       			<p th:text="${session.AdminId}" style="margin-left: 80px;"></p>
+       		</div>
+        </div>
+    </nav>
+    
+    <div id="main">   
+        <div class="clearfix"></div>
+        <br />
+        <div class="col-div-3">
+            <div class="box">
+                <a th:href="@{/BloodBankList}"><span>Total BloodBank</span></a>
+                <p class="counter" th:text="${BloodBankCount}"></p>
+				<em class="fa-solid fa-users box-icon"></em><br>         
+		    </div>
+        </div>
+        <div class="col-div-3">
+        	<div class="box">
+        		<a th:href="@{/DonorList}"><span>Total Donors</span></a>
+        		<p class="counter" th:text="${DonorCount}"></p>
+        		<em class="fa-solid fa-user box-icon"></em>
+        	</div>
+        </div>
+        <div class="col-div-3">
+        	<div class="box">
+        		<a th:href="@{/HospitalList}"><span>Total Hospital</span></a>
+        		<p class="counter" th:text="${HospitalCount}"></p>
+        		<em class="fa-solid fa-hospital-user box-icon"></em>
+        	</div>
+        </div>
+        <div class="col-div-3">
+        	<div class="box">
+        		<a th:href="@{/SeekerList}"><span>Total Seeker</span></a>
+        		<p class="counter" th:text="${SeekerCount}"></p>
+        		<em class="fa-solid fa-users box-icon"></em>
+        	</div>
+        </div>
+        <div class="col-div-3">
+        	<div class="box">
+        		<a th:href="@{/LocationList}"><span>Total Locations</span></a>
+        		<p class="counter" th:text="${LocationCount}"></p>
+        		<em class="fa-solid fa-location-dot box-icon"></em>
+        	</div>
+        </div>
+    </div>   
+   </section>
+   <script type="text/javascript" th:src="@{/JavaScript/AutoCount.js}"></script>
+</body>
+</html>

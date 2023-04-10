@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+
+.container{
+    width: 35%;
+    height: 250px;
+    background-color:whitesmoke;
+    border: 2px solid #000;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+h2{
+    background-color: red;
+    padding: 10px;
+    margin-top: -1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    align-content: center;
+}
+
+span{
+    color: rgb(32, 222, 32);
+}
+
+a{
+	text-decoration: none;
+}
+
+button{
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    padding: 10px;
+    margin-top: 60px;
+    width: 80px;
+    cursor: pointer;
+}

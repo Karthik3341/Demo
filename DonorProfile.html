@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Profile</title>
+    <link rel="stylesheet" th:href="@{/CSS/Profile.css}">
+    <script th:src="@{https://kit.fontawesome.com/853be5df50.js}" crossorigin="anonymous"></script>
+</head>
+<body>
+      <form class="form" th:action="@{/DonorProfileUpdate}" method="get" th:object="${donorupdate}" style="height: 115vh;">
+        <h2>My Profile</h2>
+        <div class="container">
+        <div class="form-group">
+            <label>Donor Code:</label>
+            <div class="relative">
+              <input class="form-control" name="donorId" id="donorId" type="number" readonly="readonly" placeholder="Type your code here..." th:value="${session.DonorId}" required>
+              <em class="fa fa-id-card-clip"></em>
+            </div>
+          </div>
+        <div class="form-group">
+          <label>Donor Name:</label>
+          <div class="relative">
+            <input class="form-control" name="donorName" id="donorName" type="text" placeholder="Type your name here..." th:value="${session.DonName}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Weight:</label>
+            <div class="relative">
+            <input class="form-control" name="weight" id="weight" type="text" placeholder="Type your weight here..." th:value="${session.Weight}" required>
+			<em class="fa fa-weight-scale"></em>
+			</div>
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <div class="relative">
+            <input class="form-control" name="donorGender" id="donorGender" type="text" readonly="readonly" placeholder="Type your gender here..." th:value="${session.Gender1}" required>
+            <em class="fa fa-person"></em>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Blood Group:</label>
+          <div class="relative">
+            <input class="form-control" name="donorBloodGroup" id="donorBloodGroup" type="text" readonly="readonly" placeholder="Type your blood group here..." th:value="${session.BloodGroup1}" required>
+            <em class="fa fa-droplet"></em>
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Mobile Number:</label>
+            <div class="relative">
+              <input class="form-control" name="donorMobileNumber" id="donorMobileNumber" type="tel" placeholder="Type your Mobile Number..." th:value="${session.MobileNumber1}" required>
+              <em class="fa fa-phone"></em>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="form-group">
+          <label>EmailId:</label>
+          <div class="relative">
+            <input class="form-control" name="donorEmail" id="donorEmail" type="email" placeholder="Type your email id..." th:value="${session.Email1}" required>
+            <em class="fa fa-envelope"></em>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Username:</label>
+          <div class="relative">
+            <input class="form-control" name="donorUserName" id="donorUserName" type="text" placeholder="Type your username..." th:value="${session.Username1}" required>
+            <em class="fa fa-user"></em>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <div class="relative">
+          <input class="form-control" name="donorPassword" id="password" type="password" placeholder="Type your password..." th:value="${session.Password1}" required>
+ 		  <span class="eyeicon" onclick="hidePassword()">
+         	 <em id="hide1" class="fa fa-eye"></em>
+         	 <em id="hide2" class="fa fa-eye-slash"></em>
+          </span>        
+          </div>  
+        </div>
+        <div class="form-group">
+          <label>Register Date</label>
+          <div class="relative">
+            <input class="form-control" name="donorRegisterDate" id="donorRegisterDate" type="date" readonly="readonly" th:value="${session.RegDate}" required>
+			<em class="fa fa-calendar-days"></em>          
+		  </div>
+        </div>
+        <div class="form-group">
+            <label>Address:</label>
+            <div class="relative">
+            <input class="form-control" name="donorAddress" id="donorAddress" type="text" placeholder="Type your address..." th:value="${session.Address1}" required>
+            <em class="fa fa-location-dot"></em>
+          </div>  
+        </div>
+        <div class="form-group">
+            <label>Location Code</label>
+            <div class="relative">
+              <input class="form-control" name="locationId" id="locationId" type="number" readonly="readonly"  placeholder="Type your Location Code..." th:value="${session.LocationId}" required>
+              <em class="fa fa-location-dot"></em>
+            </div>
+        </div> 
+        <div class="tright">
+            <button class="movebtn movebtnre" type="button" value="back" onclick="history.go(-1);"><em class="fa-solid fa-backward"></em> Go Back </button>
+            <button class="movebtn movebtnsu" type="Submit">Update <em class="fa fa-fw fa-paper-plane"></em></button>
+        </div>
+        </div>                       
+      </form>
+      <script type="text/javascript" th:src="@{/JavaScript/PasswordHideValidation.js}"></script>
+</body>
+</html>

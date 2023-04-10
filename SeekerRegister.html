@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Seeker Registration</title>
+    <link rel="stylesheet" th:href="@{/CSS/SeekerRegister.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+    <script type="text/javascript" th:src="@{https://code.jquery.com/jquery-1.7.2.min.js}"></script>  
+</head>
+<body>
+<div class="container">
+        <form th:action="@{/SeekerRegister}" method="get" th:object="${seekerRegister}">
+            <h2>Seeker Registration</h2>
+            <br>
+            <hr>
+            <div class="inputfield">
+            <label>Name :</label> 
+            <input type="text"	placeholder="Seeker name" name="seekername" id="seekername" onkeyup="nameValidation()" th:field="*{seekerName}" required>
+            </div>
+            <div class="inputfield">
+            <span id="sname-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Mobile Number</label><br> 
+            <input type="tel" placeholder="Your Mobile Number" name="mobilenumber" id="mobilenumber" onkeyup="mobileNoValidation()" th:field="*{seekerMobileNumber}">
+            </div>
+            <div class="inputfield">
+            <span id="mobile-error"></span>
+            </div>
+            
+            <div class="inputfield">
+            <label>Gender :</label>
+			<select	name="gender" th:field="*{seekerGender}" required>
+                <option value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+            </div>            
+            
+            <div class="inputfield">
+            <label>Username :</label>
+            <input type="text" placeholder="Enter username here" name="username" id="username" onkeyup="userNameValidation()" th:field="*{seekerUserName}"> 
+            </div>
+            <div class="inputfield">
+            <span id="uname-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Enter Password :</label>
+            <input type="password" placeholder="Password here" name="password" id="password" onkeyup="passwordValidation()" th:field="*{seekerPassword}" required>
+            </div>
+            <div class="inputfield">
+            <span id="pass-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Confirm Password :</label>
+            <input type="password" placeholder="Confirm Password here" name="cpassword" id="cpassword" onkeyup="cPasswordValidation()" required>
+            </div>
+            <div class="inputfield">
+            <span id="cpass-error"></span>
+            </div>
+
+            <div class="inputfield">
+            <label>Address :</label>
+            <input type="text" placeholder="Enter Your address" name="city" id="city" onkeyup="cityValidation()" th:field="*{seekerAddress}" required>
+            </div>
+            <div class="inputfield">
+            <span id="city-error"></span>
+            </div>
+            
+            <div class="inputfield">
+            <label>Location Id</label> 
+		    <select th:field="*{seekerLocationId}" required>
+			<option value="Select">Select</option>
+			<option value="1001" id="locationid" >Ariyalur</option>
+			<option value="1002" id="locationid" >Chengalpattu</option>
+			<option value="1003" id="locationid" >Chennai</option>
+			<option value="1004" id="locationid" >Coimbatore</option>
+			<option value="1005" id="locationid" >Cuddalore</option>
+			<option value="1006" id="locationid" >Dharmapuri</option>
+			<option value="1007" id="locationid" >Dindigul</option>
+			<option value="1008" id="locationid" >Erode</option>
+			<option value="1009" id="locationid" >Kallakurichi</option>
+			<option value="1010" id="locationid" >Kancheepuram</option>
+			<option value="1011" id="locationid" >Karur</option>
+			<option value="1012" id="locationid">Krishnagiri</option>
+			<option value="1013" id="locationid" >Kanyakumari</option>
+			<option value="1014" id="locationid" >Madurai</option>
+			<option value="1015" id="locationid" >Mayiladuthurai</option>
+			<option value="1016" id="locationid" >Nagapattinam</option>
+			<option value="1017" id="locationid" >Namakkal</option>
+			<option value="1018" id="locationid" >Perambalur</option>
+			<option value="1019" id="locationid" >Pudukottai</option>
+			<option value="1020" id="locationid" >Ramanathapuram</option>
+			<option value="1021" id="locationid" >Ranipet</option>
+			<option value="1022" id="locationid" >Salem</option>
+			<option value="1023" id="locationid" >Sivagangai</option>
+			<option value="1024" id="locationid" >Tenkasi</option>
+			<option value="1025" id="locationid" >Thanjavur</option>
+			<option value="1026" id="locationid" >Theni</option>
+			<option value="1027" id="locationid" >Thiruvallur</option>
+			<option value="1028" id="locationid" >Thiruvarur</option>
+			<option value="1029" id="locationid" >Tuticorin</option>
+			<option value="1030" id="locationid" >Trichy</option>
+			<option value="1031" id="locationid" >Thirunelveli</option>
+			<option value="1032" id="locationid" >Tirupathur</option>
+			<option value="1033" id="locationid" >Tiruppur</option>
+			<option value="1034" id="locationid" >Tiruvannamalai</option>
+			<option value="1035" id="locationid" >The Nilgiris</option>
+			<option value="1036" id="locationid" >Vellore</option>
+			<option value="1037" id="locationid" >Villupuram</option>
+			<option value="1038" id="locationid" >Virudhunagar</option>
+		    </select>
+            </div>      
+
+            <button type="submit" onclick="validateForm()">Submit</button>
+            <span id="submit-error"></span>
+            <div class="button4">
+            <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+            </div>
+            <div class="containersignin">
+                Already have an account? <a th:href="@{/SeekerLogin}">Sign in</a>.
+            </div>
+        </form>
+    </div>
+    <script th:src="@{/JavaScript/SeekerValidation.js}"></script>
+</body>
+</html>
